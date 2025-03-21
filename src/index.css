@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -37,66 +36,121 @@
 
     --radius: 0.75rem;
   }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border transition-colors duration-500;
   }
-  
+
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans transition-colors duration-500;
+  }
+
+  /* Smooth theme transitions */
+  :root {
+    @apply transition-colors duration-500;
+  }
+
+  /* Apply transitions to common elements */
+  a,
+  button,
+  div,
+  span,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply transition-colors duration-500;
+  }
+
+  /* Ensure glass effect transitions smoothly */
+  .glass {
+    @apply transition-all duration-500;
   }
 }
 
 /* Glass effect classes */
 @layer components {
   .glass {
-    @apply bg-white/80 backdrop-blur-md border border-white/20;
+    @apply bg-white/80 backdrop-blur-md border border-white/20 dark:bg-black/20;
   }
-  
+
   .glass-dark {
     @apply bg-foreground/10 backdrop-blur-md border border-foreground/10;
   }
-  
+
   .button-hover {
     @apply relative overflow-hidden transition-all duration-300 before:absolute before:inset-0 before:z-0 before:bg-primary/10 before:opacity-0 before:transition-opacity hover:before:opacity-100;
   }
-  
+
   .section {
     @apply py-20 md:py-32 px-6;
   }
-  
+
   .container-tight {
     @apply max-w-5xl mx-auto;
   }
-  
+
   .animate-on-scroll {
     @apply opacity-0 transition-all duration-700;
   }
-  
+
   .animate-on-scroll.is-visible {
     @apply opacity-100;
   }
-  
+
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .scroll-indicator {
     @apply absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-pulse-subtle;
   }
-  
+
   .scroll-indicator .mouse {
     @apply w-8 h-12 border-2 border-foreground/30 rounded-full flex justify-center;
   }
-  
+
   .scroll-indicator .wheel {
     @apply w-1 h-2 bg-foreground/50 rounded-full mt-2 animate-float;
   }
