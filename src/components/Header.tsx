@@ -23,7 +23,7 @@ const Header: React.FC = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6",
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm dark:bg-background/80 dark:shadow-md"
+          ? "bg-background/80 backdrop-blur-md shadow-sm "
           : "bg-transparent"
       )}
     >
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 
         <nav
           className={cn(
-            "fixed md:relative top-0 right-0 h-screen md:h-auto w-64 md:w-auto bg-background dark:bg-background md:bg-transparent transform transition-transform duration-300 ease-in-out md:translate-x-0 z-50",
+            "fixed md:relative top-0 right-0 h-screen md:h-auto w-64 md:w-auto bg-background  md:bg-transparent transform transition-transform duration-300 ease-in-out md:translate-x-0 z-50",
             isMenuOpen ? "translate-x-0" : "translate-x-full",
             "md:flex md:items-center"
           )}

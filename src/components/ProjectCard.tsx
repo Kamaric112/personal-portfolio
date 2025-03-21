@@ -52,54 +52,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
           <div
             className={cn(
-              "absolute inset-0 bg-gradient-to-t from-foreground/90 to-foreground/0 transition-opacity duration-500",
+              "absolute inset-0 bg-gradient-to-t from-foreground/90 to-foreground/0 dark:from-background/90 dark:to-background/0 transition-opacity duration-500",
               isHovered ? "opacity-95" : "opacity-80"
             )}
           ></div>
 
-          <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end text-white">
+          <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end text-white dark:text-gray-200">
             <h3
               className={cn(
-                "text-2xl font-bold mb-2 transition-transform duration-300",
+                "text-2xl font-bold mb-2 transition-all duration-300",
                 isHovered ? "-translate-y-2" : "translate-y-0"
               )}
             >
               {title}
             </h3>
 
-            <p
-              className={cn(
-                "text-white/90 mb-4 text-balance text-sm md:text-base line-clamp-2 transition-all duration-300",
-                isHovered
-                  ? "opacity-100 -translate-y-2 line-clamp-none"
-                  : "opacity-80"
-              )}
-            >
-              {description}
-            </p>
-
-            <div
-              className={cn(
-                "flex flex-wrap gap-2 mb-4 transition-all duration-300",
-                isHovered
-                  ? "opacity-100 -translate-y-2"
-                  : "opacity-0 translate-y-4"
-              )}
-            >
-              {technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 text-xs bg-white/20 backdrop-blur-sm rounded-full"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
             <a
               href={link}
               className={cn(
-                "inline-flex items-center text-sm font-medium transition-all duration-300 group-hover:text-white/90",
+                "inline-flex items-center text-sm font-medium transition-all duration-300 group-hover:text-white/90 dark:group-hover:text-gray-200/90",
                 isHovered
                   ? "opacity-100 -translate-y-0"
                   : "opacity-0 translate-y-8"
