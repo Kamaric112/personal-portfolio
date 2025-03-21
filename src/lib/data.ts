@@ -30,6 +30,8 @@ export const skills = [
   { name: "Agile" },
 ];
 
+export const skillsLearning = [{ name: "Fastify" }, { name: "ElasticSearch" }];
+
 export const experiences = [
   {
     company: "SMG - Swiss Marketplace Group",

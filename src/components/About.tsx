@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { skills, experiences, education } from "@/lib/data";
+import { skills, experiences, education, skillsLearning } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Code } from "lucide-react";
 
@@ -22,7 +22,13 @@ import {
   FaJira,
   FaCodeBranch,
 } from "react-icons/fa";
-import { SiTypescript, SiSentry, SiAwslambda } from "react-icons/si";
+import {
+  SiTypescript,
+  SiSentry,
+  SiAwslambda,
+  SiElasticsearch,
+  SiFastify,
+} from "react-icons/si";
 import { VscOrganization } from "react-icons/vsc";
 // Map of skill names to their respective icons
 
@@ -48,6 +54,16 @@ const skillIcons: Record<string, React.ReactNode> = {
   ),
   "CI/CD": <FaCodeBranch className="h-8 w-8 text-primary" />,
   Agile: <VscOrganization className="h-8 w-8 text-primary" />,
+};
+
+const skillsLearningIcon: Record<string, React.ReactNode> = {
+  Fastify: (
+    <SiFastify color={colors.vueGreen} className="h-8 w-8 text-primary" />
+  ),
+
+  ElasticSearch: (
+    <SiElasticsearch color={colors.vueGreen} className="h-8 w-8 text-primary" />
+  ),
 };
 
 const About: React.FC = () => {
@@ -82,7 +98,7 @@ const About: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
+          <div className="flex flex-col gap-6">
             <h3 className="text-xl font-semibold mb-6 animate-on-scroll">
               Skills
             </h3>
@@ -95,6 +111,26 @@ const About: React.FC = () => {
                 >
                   <div className="mb-3">
                     {skillIcons[skill.name] || (
+                      <Code className="h-8 w-8 text-primary" />
+                    )}
+                  </div>
+                  <span className="text-sm font-medium">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+
+            <h3 className="text-xl font-semibold mb-6 animate-on-scroll">
+              Currently learning...
+            </h3>
+            <div className="grid grid-cols-3 gap-6">
+              {skillsLearning.map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className="animate-on-scroll flex flex-col items-center p-4 rounded-lg bg-white/20 shadow-sm hover:shadow-md transition-all"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="mb-3">
+                    {skillsLearningIcon[skill.name] || (
                       <Code className="h-8 w-8 text-primary" />
                     )}
                   </div>
