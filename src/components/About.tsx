@@ -1,5 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { skills, experiences, education, skillsLearning } from "@/lib/data";
+import {
+  skills,
+  experiences,
+  education,
+  skillsLearning,
+  certifications,
+} from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Code } from "lucide-react";
 
@@ -192,6 +198,23 @@ const About: React.FC = () => {
                       {edu.institution}
                     </p>
                     <p className="text-foreground/60 text-xs">{edu.period}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-10">
+              <h3 className="text-xl font-semibold mb-6 animate-on-scroll">
+                Certifications
+              </h3>
+              <div className="space-y-6">
+                {certifications.map((cert, index) => (
+                  <div
+                    key={cert.name}
+                    className="animate-on-scroll"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <h4 className="font-semibold">{cert.degree}</h4>
+                    <p className="text-foreground/80 text-sm">{cert.name}</p>
                   </div>
                 ))}
               </div>

@@ -3,7 +3,7 @@ export const personalInfo = {
   title: "Software Engineer",
   email: "qu.truong99@gmail.com",
   location: "Ho Chi Minh City, Vietnam",
-  bio: "I craft elegant, intuitive digital experiences with clean, efficient code. My focus is on creating products that combine beauty and functionality, informed by my background in both design and engineering.",
+  bio: "I craft elegant, intuitive digital experiences with clean, efficient code. My focus is on creating products that combine beauty and functionality. Trying my best everyday to improve myself and my skills.",
   avatar: "/ProfilePicture.jpg",
   socialLinks: [
     {
@@ -87,6 +87,17 @@ export const education = [
   },
 ];
 
+export const certifications = [
+  {
+    name: "IELTS - International English Language Testing System",
+    degree: "IELTS 7.5",
+  },
+  {
+    name: "Microsoft Certified: Azure Fundamentals",
+    degree: "AZ-900",
+  },
+];
+
 export const projects = [
   {
     id: "homegate",
@@ -94,6 +105,7 @@ export const projects = [
     description:
       "Participate and maintained the core search and search notification on Homegate, the largest real estate platform in Switzerland.",
     image: "/HomegateSRP.png",
+    images: ["/HomegateSRP.png", "/HomegateEntryPages.png"],
     technologies: [
       "Vuejs",
       "Typescript",
@@ -110,6 +122,7 @@ export const projects = [
     description:
       "Participate and maintained the core search and search notification on ImmoScout24, one of the largest real estate platform in Switzerland.",
     image: "/IS24SRP.png",
+    images: ["/IS24SRP.png", "/IS24EntryPages.png"],
     technologies: [
       "Vuejs",
       "Typescript",
@@ -119,5 +132,15 @@ export const projects = [
       "Sentry",
     ],
     link: "https://www.immoscout24.ch",
+  },
+  {
+    id: "personalPortfolio",
+    title: "Personal Portfolio",
+    description:
+      "A personal portfolio website to showcase my projects and skills. Viewable on all devices.",
+    image: "/PersonalPortfolio.png",
+    images: ["/PersonalPortfolio.png"],
+    technologies: ["React", "Typescript", "TailwindCSS"],
+    link: "https://truongnguyen-portfolio.netlify.app/",
   },
 ];

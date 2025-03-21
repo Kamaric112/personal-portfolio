@@ -7,6 +7,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   image: string;
+  images?: string[];
   technologies: string[];
   link: string;
   delay?: number;
@@ -16,6 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   description,
   image,
+  images = [],
   technologies,
   link,
   delay = 0,
@@ -30,8 +32,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         onClose={() => setIsDialogOpen(false)}
         title={title}
         description={description}
-        image={image}
+        images={images.length > 0 ? images : [image]}
         technologies={technologies}
+        link={link}
       />
       <div
         onClick={() => setIsDialogOpen(true)}
@@ -68,14 +71,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </h3>
 
             <a
-              href={link}
               className={cn(
                 "inline-flex items-center text-sm font-medium transition-all duration-300 group-hover:text-white/90 dark:group-hover:text-gray-200/90",
                 isHovered
                   ? "opacity-100 -translate-y-0"
                   : "opacity-0 translate-y-8"
               )}
-              onClick={(e) => e.stopPropagation()}
             >
               View Project
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

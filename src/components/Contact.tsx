@@ -187,7 +187,7 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed dark:bg-gray-200"
               >
                 {isSubmitting ? (
                   <span className="flex items-center">
@@ -214,7 +214,7 @@ const Contact: React.FC = () => {
                     Sending...
                   </span>
                 ) : (
-                  <span className="flex items-center">
+                  <span className="flex items-center ">
                     Send Message
                     <Send className="ml-2 h-4 w-4" />
                   </span>
