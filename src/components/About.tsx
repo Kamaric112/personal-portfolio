@@ -163,9 +163,14 @@ const About: React.FC = () => {
                     <p className="text-foreground/60 text-xs mb-3">
                       {exp.period}
                     </p>
-                    <p className="text-foreground/80 text-sm">
-                      {exp.description}
-                    </p>
+                    <div className="text-foreground/80 text-sm">
+                      {exp.description.split("\n").map((item, i) => (
+                        <div key={i} className="flex items-baseline mb-2">
+                          <span className="w-2 h-2 rounded-full bg-primary/70 mr-2 mt-1.5 shrink-0"></span>
+                          <p>{item.trim()}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
