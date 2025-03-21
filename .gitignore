@@ -29,3 +29,9 @@ memory-bank/
 .roo/
 insert-variables.cmd
 insert-variables.sh
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
