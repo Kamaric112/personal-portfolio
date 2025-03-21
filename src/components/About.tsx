@@ -2,6 +2,24 @@
 import React, { useEffect, useRef } from 'react';
 import { skills, experiences, education } from '@/lib/data';
 import { cn } from '@/lib/utils';
+import { 
+  Code, 
+  FileCode, 
+  Server, 
+  PenTool, 
+  Database, 
+  Cloud 
+} from 'lucide-react';
+
+// Map of skill names to their respective icons
+const skillIcons: Record<string, React.ReactNode> = {
+  "React": <Code className="h-8 w-8 text-primary" />,
+  "TypeScript": <FileCode className="h-8 w-8 text-primary" />,
+  "Node.js": <Server className="h-8 w-8 text-primary" />,
+  "UI/UX Design": <PenTool className="h-8 w-8 text-primary" />,
+  "GraphQL": <Database className="h-8 w-8 text-primary" />,
+  "AWS": <Cloud className="h-8 w-8 text-primary" />,
+};
 
 const About: React.FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -37,20 +55,17 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-xl font-semibold mb-6 animate-on-scroll">Skills</h3>
-            <div className="space-y-6">
+            <div className="grid grid-cols-3 gap-6">
               {skills.map((skill, index) => (
-                <div key={skill.name} className="animate-on-scroll" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flex justify-between mb-2">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-foreground/70">{skill.level}%</span>
+                <div 
+                  key={skill.name} 
+                  className="animate-on-scroll flex flex-col items-center p-4 rounded-lg bg-white/20 shadow-sm hover:shadow-md transition-all"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="mb-3">
+                    {skillIcons[skill.name] || <Code className="h-8 w-8 text-primary" />}
                   </div>
-                  <div className="h-2 w-full bg-foreground/10 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-primary/80 rounded-full transition-all duration-1000 ease-out" 
-                      style={{ width: '0%' }}
-                      data-width={`${skill.level}%`}
-                    ></div>
-                  </div>
+                  <span className="text-sm font-medium">{skill.name}</span>
                 </div>
               ))}
             </div>
