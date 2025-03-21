@@ -4,8 +4,7 @@ export const personalInfo = {
   email: "qu.truong99@gmail.com",
   location: "Ho Chi Minh City, Vietnam",
   bio: "I craft elegant, intuitive digital experiences with clean, efficient code. My focus is on creating products that combine beauty and functionality, informed by my background in both design and engineering.",
-  avatar:
-    "https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80",
+  avatar: "/ProfilePicture.jpg",
   socialLinks: [
     {
       name: "LinkedIn",
@@ -16,12 +15,19 @@ export const personalInfo = {
 };
 
 export const skills = [
+  { name: "Vue" },
   { name: "React" },
   { name: "TypeScript" },
   { name: "Node.js" },
-  { name: "UI/UX Design" },
-  { name: "GraphQL" },
+  { name: "Database" },
   { name: "AWS" },
+  { name: "AWS Serverless" },
+  { name: "Sentry" },
+  { name: "Git" },
+  { name: "Github" },
+  { name: "Jira" },
+  { name: "CI/CD" },
+  { name: "Agile" },
 ];
 
 export const experiences = [
@@ -49,7 +55,7 @@ export const education = [
   {
     institution:
       "University of Information Technology, Vietnam National University",
-    degree: "B.S Computer Science",
+    degree: "B.S of Computer Science",
     period: "2024 - Present",
   },
   {
@@ -65,8 +71,7 @@ export const projects = [
     title: "Homegate",
     description:
       "Participate and maintained the core search and search notification on Homegate, the largest real estate platform in Switzerland.",
-    image:
-      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    image: "/HomegateSRP.png",
     technologies: [
       "Vuejs",
       "Typescript",
@@ -75,15 +80,14 @@ export const projects = [
       "Severless",
       "Sentry",
     ],
-    link: "#",
+    link: "https://www.homegate.ch",
   },
   {
     id: "immoscout24",
     title: "ImmoScout24",
     description:
       "Participate and maintained the core search and search notification on ImmoScout24, one of the largest real estate platform in Switzerland.",
-    image:
-      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    image: "/IS24SRP.png",
     technologies: [
       "Vuejs",
       "Typescript",
@@ -92,6 +96,6 @@ export const projects = [
       "Severless",
       "Sentry",
     ],
-    link: "#",
+    link: "https://www.immoscout24.ch",
   },
 ];

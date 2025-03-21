@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+memory-bank/
+.rooignore
+.roomodes
+.roo/
+insert-variables.cmd
+insert-variables.sh
