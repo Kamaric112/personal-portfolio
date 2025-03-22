@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
             style={{ animationDelay: "0.7s" }}
           >
             <a
-              href="#about"
+              href="#experience"
               className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
             >
               Learn More
