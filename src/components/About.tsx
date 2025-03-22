@@ -45,7 +45,7 @@ const skillIcons: Record<string, React.ReactNode> = {
     <SiTypescript color={colors.tsBlue} className="h-8 w-8 text-primary" />
   ),
   "Node.js": (
-    <FaNode color={colors.nodeGreen} className="h-8 w-8 text-primary" />
+    <FaNode color={colors.vueGreen} className="h-8 w-8 text-primary" />
   ),
   Database: <FaDatabase className="h-8 w-8 text-primary" />,
   AWS: <FaAws color={colors.awsOrange} className="h-8 w-8 text-primary" />,

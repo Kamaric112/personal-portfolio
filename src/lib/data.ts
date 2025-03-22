@@ -41,7 +41,6 @@ export const experiences = [
        Contribute to Front-end Vuejs & Back-end Node.js/Typescript development for Homegate & Immoscout24 search features, impacting 2M+ monthly users.
       Lead and organize a Vue 2 to Vue 3 migration, including Vite/Vitest integration, reducing build time by 60% and test start time by 65%.
      Active participation in epics ideation, shaping and refinement.
-       Actively participate in code reviews, ensuring high test coverage, and maintaining and monitoring systems.
        Work with AWS cloud technologies including Lambda, DynamoDB, SQS, SNS and S3 in a microservices architecture.
        Cloud Provider: AWS
        Tracking: Sentry, Datadog
