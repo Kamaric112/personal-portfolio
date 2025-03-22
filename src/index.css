@@ -70,7 +70,7 @@
 
 @layer base {
   * {
-    @apply border-border transition-colors duration-500;
+    @apply border-border transition-colors duration-200;
   }
 
   html {
@@ -80,12 +80,12 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans transition-colors duration-500;
+    @apply bg-background text-foreground font-sans transition-colors duration-200;
   }
 
   /* Smooth theme transitions */
   :root {
-    @apply transition-colors duration-500;
+    @apply transition-colors duration-200;
   }
 
   /* Apply transitions to common elements */
@@ -100,12 +100,12 @@
   h4,
   h5,
   h6 {
-    @apply transition-colors duration-500;
+    @apply transition-colors duration-200;
   }
 
   /* Ensure glass effect transitions smoothly */
   .glass {
-    @apply transition-all duration-500;
+    @apply transition-all duration-200;
   }
 }
 

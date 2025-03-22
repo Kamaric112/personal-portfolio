@@ -112,7 +112,7 @@ const About: React.FC = () => {
               {skills.map((skill, index) => (
                 <div
                   key={skill.name}
-                  className="animate-on-scroll flex flex-col items-center p-4 rounded-lg bg-white/20 shadow-sm hover:shadow-md transition-all"
+                  className="animate-on-scroll flex flex-col items-center p-4 rounded-lg bg-white/20 shadow-sm hover:shadow-md"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="mb-3">
@@ -120,7 +120,9 @@ const About: React.FC = () => {
                       <Code className="h-8 w-8 text-primary" />
                     )}
                   </div>
-                  <span className="text-sm font-medium">{skill.name}</span>
+                  <span className="text-sm font-medium transition-colors duration-200">
+                    {skill.name}
+                  </span>
                 </div>
               ))}
             </div>
@@ -163,13 +165,13 @@ const About: React.FC = () => {
                   >
                     <div className="absolute left-[-8px] top-0 w-3.5 h-3.5 rounded-full bg-primary/70 border-2 border-white"></div>
                     <h4 className="font-semibold text-lg">{exp.position}</h4>
-                    <p className="text-foreground/80 text-sm mb-1">
+                    <p className="text-foreground/80 text-sm mb-1 transition-colors duration-200">
                       {exp.company}
                     </p>
-                    <p className="text-foreground/60 text-xs mb-3">
+                    <p className="text-foreground/60 text-xs mb-3 transition-colors duration-200">
                       {exp.period}
                     </p>
-                    <div className="text-foreground/80 text-sm">
+                    <div className="text-foreground/80 text-sm transition-colors duration-200">
                       {exp.description.split("\n").map((item, i) => (
                         <div key={i} className="flex items-baseline mb-2">
                           <span className="w-2 h-2 rounded-full bg-primary/70 mr-2 mt-1.5 shrink-0"></span>
@@ -194,10 +196,12 @@ const About: React.FC = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <h4 className="font-semibold">{edu.degree}</h4>
-                    <p className="text-foreground/80 text-sm">
+                    <p className="text-foreground/80 text-sm transition-colors duration-200">
                       {edu.institution}
                     </p>
-                    <p className="text-foreground/60 text-xs">{edu.period}</p>
+                    <p className="text-foreground/60 text-xs transition-colors duration-200">
+                      {edu.period}
+                    </p>
                   </div>
                 ))}
               </div>
