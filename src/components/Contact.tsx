@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/50 border border-foreground/10 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary/30 focus:outline-none transition-all"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-background/50 border border-foreground/10 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary/30 focus:outline-none transition-all placeholder:text-foreground/50 dark:placeholder:text-foreground/70"
                   placeholder="Your name"
                 />
               </div>
@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/50 border border-foreground/10 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary/30 focus:outline-none transition-all"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-background/50 border border-foreground/10 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary/30 focus:outline-none transition-all placeholder:text-foreground/50 dark:placeholder:text-foreground/70"
                   placeholder="your@email.com"
                 />
               </div>
@@ -179,7 +179,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/50 border border-foreground/10 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary/30 focus:outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-background/50 border border-foreground/10 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary/30 focus:outline-none transition-all resize-none placeholder:text-foreground/50 dark:placeholder:text-foreground/70"
                   placeholder="Your message..."
                 />
               </div>

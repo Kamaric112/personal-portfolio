@@ -124,7 +124,7 @@
   }
 
   .section {
-    @apply py-20 md:py-32 px-6;
+    @apply py-20 md:py-32 px-6 scroll-mt-24;
   }
 
   .container-tight {
@@ -144,7 +144,7 @@
   }
 
   .scroll-indicator {
-    @apply absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-pulse-subtle;
+    @apply absolute bottom-2 md:bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-pulse-subtle;
   }
 
   .scroll-indicator .mouse {
@@ -153,5 +153,26 @@
 
   .scroll-indicator .wheel {
     @apply w-1 h-2 bg-foreground/50 rounded-full mt-2 animate-float;
+  }
+
+  /* Section highlight animation */
+  @keyframes section-highlight {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  section:target {
+    animation: section-highlight 1.2s ease-in-out;
+  }
+
+  section:target h2 {
+    @apply scale-105 transition-transform duration-500;
   }
 }

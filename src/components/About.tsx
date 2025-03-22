@@ -96,7 +96,7 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section id="about" className="section bg-secondary/30">
+    <section id="experience" className="section bg-secondary/30">
       <div className="container-tight" ref={aboutRef}>
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
