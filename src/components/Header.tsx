@@ -21,9 +21,9 @@ const Header: React.FC = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6",
+        "fixed top-0 left-0 right-0 z-50 py-4 px-6",
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm "
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 
         <nav
           className={cn(
-            "fixed md:relative top-0 right-0 h-screen md:h-auto w-64 md:w-auto bg-background  md:bg-transparent transform transition-transform duration-300 ease-in-out md:translate-x-0 z-50",
+            "fixed md:relative top-0 right-0 h-screen md:h-auto w-64 md:w-auto bg-background md:bg-transparent transform md:translate-x-0 z-50",
             isMenuOpen ? "translate-x-0" : "translate-x-full",
             "md:flex md:items-center"
           )}
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className="text-foreground/80 hover:text-foreground transition-colors text-base md:text-sm font-medium tracking-wide"
+                  className="text-foreground/80 hover:text-foreground text-base md:text-sm font-medium tracking-wide"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}

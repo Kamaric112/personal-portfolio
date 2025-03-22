@@ -17,6 +17,7 @@ const colors = {
   awsOrange: "#ff9900",
   gitRed: "red",
 } as const;
+
 import {
   FaReact,
   FaVuejs,
@@ -36,7 +37,6 @@ import {
   SiFastify,
 } from "react-icons/si";
 import { VscOrganization } from "react-icons/vsc";
-// Map of skill names to their respective icons
 
 const skillIcons: Record<string, React.ReactNode> = {
   Vue: <FaVuejs color={colors.vueGreen} className="h-8 w-8 text-primary" />,
@@ -66,7 +66,6 @@ const skillsLearningIcon: Record<string, React.ReactNode> = {
   Fastify: (
     <SiFastify color={colors.vueGreen} className="h-8 w-8 text-primary" />
   ),
-
   ElasticSearch: (
     <SiElasticsearch color={colors.vueGreen} className="h-8 w-8 text-primary" />
   ),
@@ -120,9 +119,7 @@ const About: React.FC = () => {
                       <Code className="h-8 w-8 text-primary" />
                     )}
                   </div>
-                  <span className="text-sm font-medium transition-colors duration-200">
-                    {skill.name}
-                  </span>
+                  <span className="text-sm font-medium">{skill.name}</span>
                 </div>
               ))}
             </div>
@@ -134,7 +131,7 @@ const About: React.FC = () => {
               {skillsLearning.map((skill, index) => (
                 <div
                   key={skill.name}
-                  className="animate-on-scroll flex flex-col items-center p-4 rounded-lg bg-white/20 shadow-sm hover:shadow-md transition-all"
+                  className="animate-on-scroll flex flex-col items-center p-4 rounded-lg bg-white/20 shadow-sm hover:shadow-md"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="mb-3">
@@ -165,13 +162,13 @@ const About: React.FC = () => {
                   >
                     <div className="absolute left-[-8px] top-0 w-3.5 h-3.5 rounded-full bg-primary/70 border-2 border-white"></div>
                     <h4 className="font-semibold text-lg">{exp.position}</h4>
-                    <p className="text-foreground/80 text-sm mb-1 transition-colors duration-200">
+                    <p className="text-foreground/80 text-sm mb-1">
                       {exp.company}
                     </p>
-                    <p className="text-foreground/60 text-xs mb-3 transition-colors duration-200">
+                    <p className="text-foreground/60 text-xs mb-3">
                       {exp.period}
                     </p>
-                    <div className="text-foreground/80 text-sm transition-colors duration-200">
+                    <div className="text-foreground/80 text-sm">
                       {exp.description.split("\n").map((item, i) => (
                         <div key={i} className="flex items-baseline mb-2">
                           <span className="w-2 h-2 rounded-full bg-primary/70 mr-2 mt-1.5 shrink-0"></span>
@@ -196,16 +193,15 @@ const About: React.FC = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <h4 className="font-semibold">{edu.degree}</h4>
-                    <p className="text-foreground/80 text-sm transition-colors duration-200">
+                    <p className="text-foreground/80 text-sm">
                       {edu.institution}
                     </p>
-                    <p className="text-foreground/60 text-xs transition-colors duration-200">
-                      {edu.period}
-                    </p>
+                    <p className="text-foreground/60 text-xs">{edu.period}</p>
                   </div>
                 ))}
               </div>
             </div>
+
             <div className="mt-10">
               <h3 className="text-xl font-semibold mb-6 animate-on-scroll">
                 Certifications
