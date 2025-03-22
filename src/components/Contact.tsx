@@ -3,11 +3,13 @@ import { Send, Mail, MapPin } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
-
+import { FaLinkedin } from "react-icons/fa";
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
+const personalInfoIcons: Record<string, React.ReactNode> = {
+  LinkedIn: <FaLinkedin className="h-8 w-8 text-primary" />,
+};
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
@@ -117,7 +119,9 @@ const Contact: React.FC = () => {
                       className="h-10 w-10 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-primary/10 transition-colors"
                       aria-label={link.name}
                     >
-                      <span className="text-sm">{link.name.charAt(0)}</span>
+                      {personalInfoIcons[link.name] || (
+                        <span className="text-sm">{link.name.charAt(0)}</span>
+                      )}
                     </a>
                   ))}
                 </div>
