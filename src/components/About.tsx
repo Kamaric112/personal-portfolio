@@ -23,7 +23,13 @@ import {
 } from "@/lib/data";
 import { SortableSkill } from "./SortableSkill";
 import { cn } from "@/lib/utils";
-import { Code } from "lucide-react";
+import { Code, GripVertical } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import {
   FaReact,
   FaVuejs,
@@ -88,7 +94,32 @@ const skillsLearningIcon: Record<string, React.ReactNode> = {
 
 const About: React.FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
+  const [showTooltip, setShowTooltip] = useState(true);
+  const tooltipTimerRef = useRef<NodeJS.Timeout>();
   const [skills, setSkills] = useState<Skill[]>(initialSkills);
+
+  const showTooltipTemporarily = () => {
+    setShowTooltip(true);
+    if (tooltipTimerRef.current) {
+      clearTimeout(tooltipTimerRef.current);
+    }
+    tooltipTimerRef.current = setTimeout(() => {
+      setShowTooltip(false);
+    }, 2000);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowTooltip(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+      if (tooltipTimerRef.current) {
+        clearTimeout(tooltipTimerRef.current);
+      }
+    };
+  }, []);
   const [learningSkills, setLearningSkills] = useState<Skill[]>(
     initialLearningSkills
   );
@@ -163,9 +194,32 @@ const About: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="flex flex-col gap-6">
-            <h3 className="text-xl font-semibold mb-6 animate-on-scroll">
-              Skills
-            </h3>
+            <div className="flex items-center gap-2 mb-6">
+              <h3 className="text-xl font-semibold animate-on-scroll">
+                Skills
+              </h3>
+              <TooltipProvider>
+                <Tooltip open={showTooltip}>
+                  <TooltipTrigger
+                    onClick={showTooltipTemporarily}
+                    onMouseEnter={showTooltipTemporarily}
+                  >
+                    <GripVertical
+                      className={cn(
+                        "h-4 w-4 transition-opacity duration-200 cursor-pointer",
+                        showTooltip ? "text-primary" : ""
+                      )}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side="right"
+                    className="bg-primary text-primary-foreground"
+                  >
+                    <p>You can reorder the skills!</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
             <DndContext
               sensors={sensors}
               collisionDetection={closestCenter}
@@ -188,9 +242,11 @@ const About: React.FC = () => {
               </SortableContext>
             </DndContext>
 
-            <h3 className="text-xl font-semibold mb-6 animate-on-scroll">
-              Currently learning...
-            </h3>
+            <div className="flex items-center gap-2 mb-6">
+              <h3 className="text-xl font-semibold animate-on-scroll">
+                Currently learning...
+              </h3>
+            </div>
             <DndContext
               sensors={sensors}
               collisionDetection={closestCenter}
