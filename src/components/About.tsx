@@ -1,23 +1,29 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
-  skills,
+  DndContext,
+  DragEndEvent,
+  KeyboardSensor,
+  PointerSensor,
+  closestCenter,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  arrayMove,
+  rectSortingStrategy,
+} from "@dnd-kit/sortable";
+import {
+  skills as initialSkills,
   experiences,
   education,
-  skillsLearning,
+  skillsLearning as initialLearningSkills,
   certifications,
+  Skill,
 } from "@/lib/data";
+import { SortableSkill } from "./SortableSkill";
 import { cn } from "@/lib/utils";
 import { Code } from "lucide-react";
-
-const colors = {
-  vueGreen: "#41b883",
-  reactCyan: "#00ffff",
-  tsBlue: "#3178c6",
-  nodeGreen: "#215732",
-  awsOrange: "#ff9900",
-  gitRed: "red",
-} as const;
-
 import {
   FaReact,
   FaVuejs,
@@ -37,6 +43,15 @@ import {
   SiFastify,
 } from "react-icons/si";
 import { VscOrganization } from "react-icons/vsc";
+
+const colors = {
+  vueGreen: "#41b883",
+  reactCyan: "#00ffff",
+  tsBlue: "#3178c6",
+  nodeGreen: "#215732",
+  awsOrange: "#ff9900",
+  gitRed: "red",
+} as const;
 
 const skillIcons: Record<string, React.ReactNode> = {
   Vue: <FaVuejs color={colors.vueGreen} className="h-8 w-8 text-primary" />,
@@ -73,7 +88,51 @@ const skillsLearningIcon: Record<string, React.ReactNode> = {
 
 const About: React.FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
+  const [skills, setSkills] = useState<Skill[]>(initialSkills);
+  const [learningSkills, setLearningSkills] = useState<Skill[]>(
+    initialLearningSkills
+  );
 
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    }),
+    useSensor(KeyboardSensor)
+  );
+
+  const handleSkillsDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+    if (over && active.id !== over.id) {
+      setSkills((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
+        const newItems = arrayMove(items, oldIndex, newIndex);
+        return newItems.map((item, index) => ({ ...item, order: index }));
+      });
+      if (window.navigator.vibrate) {
+        window.navigator.vibrate(100);
+      }
+    }
+  };
+
+  const handleLearningSkillsDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+    if (over && active.id !== over.id) {
+      setLearningSkills((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
+        const newItems = arrayMove(items, oldIndex, newIndex);
+        return newItems.map((item, index) => ({ ...item, order: index }));
+      });
+      if (window.navigator.vibrate) {
+        window.navigator.vibrate(100);
+      }
+    }
+  };
+
+  // Intersection observer for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -107,44 +166,55 @@ const About: React.FC = () => {
             <h3 className="text-xl font-semibold mb-6 animate-on-scroll">
               Skills
             </h3>
-            <div className="grid grid-cols-3 gap-6">
-              {skills.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="animate-on-scroll flex flex-col items-center p-4 rounded-lg bg-white/20 shadow-sm hover:shadow-md"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="mb-3">
-                    {skillIcons[skill.name] || (
-                      <Code className="h-8 w-8 text-primary" />
-                    )}
-                  </div>
-                  <span className="text-sm font-medium">{skill.name}</span>
+            <DndContext
+              sensors={sensors}
+              collisionDetection={closestCenter}
+              onDragEnd={handleSkillsDragEnd}
+            >
+              <SortableContext
+                items={skills.map((skill) => skill.id)}
+                strategy={rectSortingStrategy}
+              >
+                <div className="grid grid-cols-3 gap-6">
+                  {skills.map((skill) => (
+                    <SortableSkill
+                      key={skill.id}
+                      id={skill.id}
+                      name={skill.name}
+                      icon={skillIcons[skill.name]}
+                    />
+                  ))}
                 </div>
-              ))}
-            </div>
+              </SortableContext>
+            </DndContext>
 
             <h3 className="text-xl font-semibold mb-6 animate-on-scroll">
               Currently learning...
             </h3>
-            <div className="grid grid-cols-3 gap-6">
-              {skillsLearning.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="animate-on-scroll flex flex-col items-center p-4 rounded-lg bg-white/20 shadow-sm hover:shadow-md"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="mb-3">
-                    {skillsLearningIcon[skill.name] || (
-                      <Code className="h-8 w-8 text-primary" />
-                    )}
-                  </div>
-                  <span className="text-sm font-medium">{skill.name}</span>
+            <DndContext
+              sensors={sensors}
+              collisionDetection={closestCenter}
+              onDragEnd={handleLearningSkillsDragEnd}
+            >
+              <SortableContext
+                items={learningSkills.map((skill) => skill.id)}
+                strategy={rectSortingStrategy}
+              >
+                <div className="grid grid-cols-3 gap-6">
+                  {learningSkills.map((skill) => (
+                    <SortableSkill
+                      key={skill.id}
+                      id={skill.id}
+                      name={skill.name}
+                      icon={skillsLearningIcon[skill.name]}
+                    />
+                  ))}
                 </div>
-              ))}
-            </div>
+              </SortableContext>
+            </DndContext>
           </div>
 
+          {/* Rest of the component remains unchanged */}
           <div>
             <div className="mb-10">
               <h3 className="text-xl font-semibold mb-6 animate-on-scroll">
@@ -160,7 +230,7 @@ const About: React.FC = () => {
                     )}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="absolute left-[-8px] top-0 w-3.5 h-3.5 rounded-full bg-primary/70 border-2 border-white"></div>
+                    <div className="absolute left-[-8px] top-0 w-3.5 h-3.5 rounded-full bg-primary/70 border-2 border-white" />
                     <h4 className="font-semibold text-lg">{exp.position}</h4>
                     <p className="text-foreground/80 text-sm mb-1">
                       {exp.company}
@@ -171,7 +241,7 @@ const About: React.FC = () => {
                     <div className="text-foreground/80 text-sm">
                       {exp.description.split("\n").map((item, i) => (
                         <div key={i} className="flex items-baseline mb-2">
-                          <span className="w-2 h-2 rounded-full bg-primary/70 mr-2 mt-1.5 shrink-0"></span>
+                          <span className="w-2 h-2 rounded-full bg-primary/70 mr-2 mt-1.5 shrink-0" />
                           <p>{item.trim()}</p>
                         </div>
                       ))}

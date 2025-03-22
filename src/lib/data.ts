@@ -14,23 +14,32 @@ export const personalInfo = {
   ],
 };
 
-export const skills = [
-  { name: "Vue" },
-  { name: "React" },
-  { name: "TypeScript" },
-  { name: "Node.js" },
-  { name: "Database" },
-  { name: "AWS" },
-  { name: "AWS Serverless" },
-  { name: "Sentry" },
-  { name: "Git" },
-  { name: "Github" },
-  { name: "CI/CD" },
-  { name: "Agile" },
-  { name: "Jira" },
+export interface Skill {
+  id: string;
+  name: string;
+  order: number;
+}
+
+export const skills: Skill[] = [
+  { id: "vue", name: "Vue", order: 0 },
+  { id: "react", name: "React", order: 1 },
+  { id: "typescript", name: "TypeScript", order: 2 },
+  { id: "nodejs", name: "Node.js", order: 3 },
+  { id: "database", name: "Database", order: 4 },
+  { id: "aws", name: "AWS", order: 5 },
+  { id: "aws-serverless", name: "AWS Serverless", order: 6 },
+  { id: "sentry", name: "Sentry", order: 7 },
+  { id: "git", name: "Git", order: 8 },
+  { id: "github", name: "Github", order: 9 },
+  { id: "cicd", name: "CI/CD", order: 10 },
+  { id: "agile", name: "Agile", order: 11 },
+  { id: "jira", name: "Jira", order: 12 },
 ];
 
-export const skillsLearning = [{ name: "Fastify" }, { name: "ElasticSearch" }];
+export const skillsLearning: Skill[] = [
+  { id: "fastify", name: "Fastify", order: 0 },
+  { id: "elasticsearch", name: "ElasticSearch", order: 1 },
+];
 
 export const experiences = [
   {
