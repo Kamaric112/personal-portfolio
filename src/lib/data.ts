@@ -104,8 +104,8 @@ export const projects = [
     title: "Homegate",
     description:
       "Participate and maintained the core search and search notification on Homegate, the largest real estate platform in Switzerland.",
-    image: "/HomegateSRP.png",
-    images: ["/HomegateSRP.png", "/HomegateEntryPages.png"],
+    image: "/HomegateEntryPages.png",
+    images: ["/HomegateEntryPages.png", "/HomegateSRP.png"],
     technologies: [
       "Vuejs",
       "Typescript",
@@ -121,8 +121,8 @@ export const projects = [
     title: "ImmoScout24",
     description:
       "Participate and maintained the core search and search notification on ImmoScout24, one of the largest real estate platform in Switzerland.",
-    image: "/IS24SRP.png",
-    images: ["/IS24SRP.png", "/IS24EntryPages.png"],
+    image: "/IS24EntryPages.png",
+    images: ["/IS24EntryPages.png", "/IS24SRP.png"],
     technologies: [
       "Vuejs",
       "Typescript",

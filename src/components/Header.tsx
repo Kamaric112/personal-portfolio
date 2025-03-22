@@ -70,7 +70,7 @@ const Header: React.FC = () => {
 
         <button
           onClick={toggleMenu}
-          className="md:hidden p-2 z-50"
+          className={cn("md:hidden p-2 z-50", isMenuOpen ? "hidden" : "")}
           aria-label="Open menu"
         >
           <Menu className="h-6 w-6" />
