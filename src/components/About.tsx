@@ -94,8 +94,10 @@ const skillsLearningIcon: Record<string, React.ReactNode> = {
 
 const About: React.FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
-  const [showTooltip, setShowTooltip] = useState(true);
+  const skillsSectionRef = useRef<HTMLDivElement>(null);
+  const [showTooltip, setShowTooltip] = useState(false);
   const tooltipTimerRef = useRef<NodeJS.Timeout>();
+  const hasShownTooltip = useRef(false);
   const [skills, setSkills] = useState<Skill[]>(initialSkills);
 
   const showTooltipTemporarily = () => {
@@ -108,13 +110,29 @@ const About: React.FC = () => {
     }, 2000);
   };
 
+  // Set up intersection observer for skills section
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowTooltip(false);
-    }, 3000);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasShownTooltip.current) {
+            setShowTooltip(true);
+            hasShownTooltip.current = true;
+            tooltipTimerRef.current = setTimeout(() => {
+              setShowTooltip(false);
+            }, 3000);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (skillsSectionRef.current) {
+      observer.observe(skillsSectionRef.current);
+    }
 
     return () => {
-      clearTimeout(timer);
+      observer.disconnect();
       if (tooltipTimerRef.current) {
         clearTimeout(tooltipTimerRef.current);
       }
@@ -194,7 +212,10 @@ const About: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="flex flex-col gap-6">
-            <div className="flex items-center gap-2 mb-6">
+            <div
+              className="flex items-center gap-2 mb-6"
+              ref={skillsSectionRef}
+            >
               <h3 className="text-xl font-semibold animate-on-scroll">
                 Skills
               </h3>
