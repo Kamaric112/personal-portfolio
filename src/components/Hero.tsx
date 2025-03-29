@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 border border-foreground/20 rounded-full font-medium hover:bg-foreground/5 transition-colors"
+              className="px-6 py-3 border border-foreground/20 rounded-full font-medium hover:bg-foreground/5"
             >
               Contact Me
             </a>
