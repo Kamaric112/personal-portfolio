@@ -53,8 +53,8 @@ export const experiences = [
        Work with AWS cloud technologies including Lambda, DynamoDB, SQS, SNS and S3 in a microservices architecture.
        Cloud Provider: AWS
        Tracking: Sentry, Datadog
-       CI/CD: Github Actions.
-       Documentation: Backstage.
+       CI/CD: Github Actions
+       Documentation: Backstage
     `.trim(),
   },
   {
@@ -67,7 +67,7 @@ export const experiences = [
        Implemented comprehensive unit tests for frontend and backend modules, enhancing code reliability.
        Tracking: Sentry
        Cloud Provider: Azure
-       Organize internal Python training sessions among engineers within the company.
+       Organized internal Python training sessions among engineers within the company.
     `.trim(),
   },
   {

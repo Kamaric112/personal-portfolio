@@ -52,33 +52,19 @@ const Hero: React.FC = () => {
 
           <div className="space-y-4">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance">
-              <span
-                className="block animate-fade-in-up"
-                style={{ animationDelay: "0.1s" }}
-              >
-                {personalInfo.name}
-              </span>
+              <span className="block">{personalInfo.name}</span>
             </h1>
 
-            <h2
-              className="text-xl md:text-2xl text-foreground/80 animate-fade-in-up"
-              style={{ animationDelay: "0.3s" }}
-            >
+            <h2 className="text-xl md:text-2xl text-foreground/80">
               {personalInfo.title}
             </h2>
 
-            <p
-              className="max-w-2xl mx-auto text-lg text-foreground/70 leading-relaxed text-balance animate-fade-in-up"
-              style={{ animationDelay: "0.5s" }}
-            >
+            <p className="max-w-2xl mx-auto text-lg text-foreground/70 leading-relaxed text-balance">
               {personalInfo.bio}
             </p>
           </div>
 
-          <div
-            className="flex items-center justify-center gap-6 pt-4 animate-fade-in-up"
-            style={{ animationDelay: "0.7s" }}
-          >
+          <div className="flex items-center justify-center gap-6 pt-4">
             <a
               href="#experience"
               className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
