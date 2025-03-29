@@ -6,6 +6,7 @@ import { ThemeToggle } from "./ui/theme-toggle";
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -16,6 +17,46 @@ const Header: React.FC = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Effect for active link highlighting
+  useEffect(() => {
+    const sectionIds = ["about", "experience", "projects", "contact"];
+    const sections = sectionIds.map((id) => document.getElementById(id));
+
+    const observerOptions = {
+      root: null, // relative to document viewport
+      rootMargin: "-50% 0px -50% 0px", // Trigger when section is centered
+      threshold: 0, // Trigger as soon as any part enters/leaves the rootMargin area
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    sections.forEach((section) => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    // Cleanup function
+    return () => {
+      sections.forEach((section) => {
+        if (section) {
+          observer.unobserve(section);
+        }
+      });
+    };
   }, []);
 
   return (
@@ -58,7 +99,12 @@ const Header: React.FC = () => {
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className="text-foreground/80 hover:text-foreground text-base md:text-sm font-medium tracking-wide"
+                  className={cn(
+                    "text-base md:text-sm font-medium tracking-wide transition-colors",
+                    activeSection === item.toLowerCase()
+                      ? "text-primary font-semibold underline" // Added underline here
+                      : "text-foreground/80 hover:text-foreground"
+                  )}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}
