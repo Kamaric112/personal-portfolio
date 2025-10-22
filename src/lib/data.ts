@@ -47,14 +47,14 @@ export const experiences = [
     position: "Full-stack Developer",
     period: "June 2024 - Present",
     description: `
-       Contribute to Front-end Vuejs & Back-end Node.js/Typescript development for Homegate & Immoscout24 search features, impacting 2M+ monthly users.
-      Lead and organize a Vue 2 to Vue 3 migration, including Vite/Vitest integration, reducing build time by 60% and test start time by 65%.
-     Active participation in epics ideation, shaping and refinement.
-       Work with AWS cloud technologies including Lambda, DynamoDB, SQS, SNS and S3 in a microservices architecture.
-       Cloud Provider: AWS
-       Tracking: Sentry, Datadog
-       CI/CD: Github Actions
-       Documentation: Backstage
+   Stack: Vue.js, Node.js, Typescript, AWS services (Lambda, SQS, CDK, DynamoDB), Vite, Vitest, Jest, Cypress, Datadog, Github Actions
+Contribute to the full-stack development (Vue.js, Node.js/TypeScript) of core search and search notification features for Homegate & ImmoScout24, directly impacting over 2 million monthly active users.
+Lead two Vue 2 to Vue 3 migrations, decouple them into dedicated repositories. Incorporating Vite and Vitest, reducing application build time by 75% and cutting test execution times by 65%.
+Improve front-end performance by reducing bundle size by 20% through lazy-loading and subpath imports for multiple internal component libraries
+Design and implement a daily newsletter system, increasing the active subscriber count by 500%.
+Develop an extended search feature for soft 404 listing pages, enhancing SEO performance and improving the overall user experience by retaining otherwise lost traffic.
+Lead the AI development tools integration intitiave (Cursor Bugbot, MCPs, Agents.md) into the team's workflow, including an automated PR reviewer and general coding conventions for LLMs.
+Guide new team members through onboarding, including team processes and code pairing sessions.
     `.trim(),
   },
   {
@@ -62,12 +62,11 @@ export const experiences = [
     position: "Full-stack Developer",
     period: "2023 - 2024",
     description: `
-       Developed multiple internal web applications from scratch, utilizing Django, Vue3, and TypeScript, to streamline project management and collaboration among a team of engineers.
-       Created and published internal npm packages for frontend, including a Component Library and Base State Management, significantly accelerating development cycles and ensuring consistency across projects.
-       Implemented comprehensive unit tests for frontend and backend modules, enhancing code reliability.
-       Tracking: Sentry
-       Cloud Provider: Azure
-       Organized internal Python training sessions among engineers within the company.
+     Stack: React.js, Typescript, Django, Azure, Sentry, Material UI, Storybook
+Develop multiple internal web applications utilizing Django, React, and TypeScript.
+Automated the end-to-end customer geodata workflow by developing a custom importer and interactive Leaflet.js map visualization, significantly reducing manual processing steps and improving operational efficiency.
+Created and maintained internal NPM package for a shared front-end state management, significantly reducing code duplication across applications.
+Created and maintained a shared Component Library using MUI and Storybook, enforcing design consistency across multiple projects
     `.trim(),
   },
   {
@@ -75,8 +74,9 @@ export const experiences = [
     position: "Junior Full-stack Developer",
     period: "2022 - 2023",
     description: `
-       Created user interface elements for various pages following the Figma design by UI/UX designer.
-       Built reusable components for repeated use in the project and contributed in the generalization of the styling configuration.
+      Stack: React.js, Typescript
+Developed Frontend dashboards for IOT devices for clients and customers using React.js
+Acted as the primary point of contact for external clients to gather, analyze, and translate functional requirements into technical specifications.peated use in the project and contributed in the generalization of the styling configuration.
     `.trim(),
   },
 ];
@@ -86,16 +86,20 @@ export const education = [
     institution:
       "University of Information Technology, Vietnam National University",
     degree: "B.S of Computer Science",
-    period: "2024 - Present",
+    period: "Jan 2024 - Oct 2025",
   },
   {
     institution: "Bach Khoa University",
     degree: "B.S of Engineering",
-    period: "2017-2021",
+    period: "Sep 2017 - Oct 2021",
   },
 ];
 
 export const certifications = [
+  {
+    name: "AWS Solutions Architect - Associate",
+    degree: "AWS-SA-C03",
+  },
   {
     name: "IELTS - International English Language Testing System",
     degree: "IELTS 7.5",

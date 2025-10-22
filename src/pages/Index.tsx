@@ -57,7 +57,7 @@ const Index: React.FC = () => {
       <main className="overflow-hidden">
         <Hero />
         <About />
-        <Projects />
+        {/* <Projects /> */}
         <Contact />
       </main>
       <Footer />
