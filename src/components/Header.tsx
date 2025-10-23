@@ -21,7 +21,7 @@ const Header: React.FC = () => {
 
   // Effect for active link highlighting
   useEffect(() => {
-    const sectionIds = ["about", "experience", "projects", "contact"];
+    const sectionIds = ["about", "experience", "contact"];
     const sections = sectionIds.map((id) => document.getElementById(id));
 
     const observerOptions = {
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
           </button>
 
           <ul className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12 p-12 md:p-0">
-            {["About", "Experience", "Projects", "Contact"].map((item) => (
+            {["About", "Experience", "Contact"].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}

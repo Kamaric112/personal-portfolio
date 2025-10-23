@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Truong Quang Nguyen",
   title: "Software Engineer",
-  email: "qu.truong99@gmail.com",
+  email: "truong.ngquang112@gmail.com",
   location: "Ho Chi Minh City, Vietnam",
   bio: "I craft elegant, intuitive digital experiences with clean, efficient code. My focus is on creating products that combine beauty and functionality. Trying my best everyday to improve myself and my skills.",
   avatar: "/ProfilePicture.jpg",
