@@ -62,11 +62,11 @@ Guide new team members through onboarding, including team processes and code pai
     position: "Full-stack Developer",
     period: "2023 - 2024",
     description: `
-     Stack: React.js, Typescript, Django, Azure, Sentry, Material UI, Storybook
-Develop multiple internal web applications utilizing Django, React, and TypeScript.
+     Stack: React, Vue, Typescript, Django, Azure, Sentry, Storybook
+Develop multiple internal web applications utilizing Django, React, Vue and TypeScript.
 Automated the end-to-end customer geodata workflow by developing a custom importer and interactive Leaflet.js map visualization, significantly reducing manual processing steps and improving operational efficiency.
 Created and maintained internal NPM package for a shared front-end state management, significantly reducing code duplication across applications.
-Created and maintained a shared Component Library using MUI and Storybook, enforcing design consistency across multiple projects
+Created and maintained a shared Component Library using Storybook, enforcing design consistency across multiple projects
     `.trim(),
   },
   {
