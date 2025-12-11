@@ -23,13 +23,6 @@ import {
 } from "@/lib/data";
 import { SortableSkill } from "./SortableSkill";
 import { cn } from "@/lib/utils";
-import { Code, GripVertical } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import {
   FaReact,
   FaVuejs,
@@ -95,49 +88,7 @@ const skillsLearningIcon: Record<string, React.ReactNode> = {
 const About: React.FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const skillsSectionRef = useRef<HTMLDivElement>(null);
-  const [showTooltip, setShowTooltip] = useState(false);
-  const tooltipTimerRef = useRef<NodeJS.Timeout>();
-  const hasShownTooltip = useRef(false);
   const [skills, setSkills] = useState<Skill[]>(initialSkills);
-
-  const showTooltipTemporarily = () => {
-    setShowTooltip(true);
-    if (tooltipTimerRef.current) {
-      clearTimeout(tooltipTimerRef.current);
-    }
-    tooltipTimerRef.current = setTimeout(() => {
-      setShowTooltip(false);
-    }, 2000);
-  };
-
-  // Set up intersection observer for skills section
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasShownTooltip.current) {
-            setShowTooltip(true);
-            hasShownTooltip.current = true;
-            tooltipTimerRef.current = setTimeout(() => {
-              setShowTooltip(false);
-            }, 3000);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (skillsSectionRef.current) {
-      observer.observe(skillsSectionRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-      if (tooltipTimerRef.current) {
-        clearTimeout(tooltipTimerRef.current);
-      }
-    };
-  }, []);
   const [learningSkills, setLearningSkills] = useState<Skill[]>(
     initialLearningSkills
   );
@@ -219,27 +170,12 @@ const About: React.FC = () => {
               <h3 className="text-xl font-semibold animate-on-scroll">
                 Skills
               </h3>
-              <TooltipProvider>
-                <Tooltip open={showTooltip}>
-                  <TooltipTrigger
-                    onClick={showTooltipTemporarily}
-                    onMouseEnter={showTooltipTemporarily}
-                  >
-                    <GripVertical
-                      className={cn(
-                        "h-4 w-4 transition-opacity duration-200 cursor-pointer",
-                        showTooltip ? "text-primary" : ""
-                      )}
-                    />
-                  </TooltipTrigger>
-                  <TooltipContent
-                    side="right"
-                    className="bg-primary text-primary-foreground"
-                  >
-                    <p>You can reorder the skills!</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <div className="flex items-center gap-2">
+                <span className="inline-block origin-[70%_70%] animate-wave text-lg cursor-default">👋</span>
+                <div className="relative bg-primary text-primary-foreground py-2 px-3 rounded-lg text-xs whitespace-nowrap before:content-[''] before:absolute before:-left-1.5 before:top-1/2 before:-translate-y-1/2 before:border-[6px] before:border-transparent before:border-r-primary">
+                  You can reorder the skills!
+                </div>
+              </div>
             </div>
             <DndContext
               sensors={sensors}
