@@ -35,7 +35,7 @@ export function SortableSkill({ id, name, icon }: SortableSkillProps) {
       className="animate-on-scroll flex flex-col items-center p-4 rounded-lg bg-white/20 shadow-sm hover:shadow-md touch-none"
     >
       <div className="mb-3">
-        {icon || <Code className="h-8 w-8 text-primary" />}
+        {icon || <Code aria-hidden="true" className="h-8 w-8 text-primary" />}
       </div>
       <span className="text-sm font-medium">{name}</span>
     </div>
