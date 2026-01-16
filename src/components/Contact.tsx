@@ -8,7 +8,7 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const personalInfoIcons: Record<string, React.ReactNode> = {
-  LinkedIn: <FaLinkedin className="h-8 w-8 text-primary" />,
+  LinkedIn: <FaLinkedin aria-hidden="true" className="h-8 w-8 text-primary" />,
 };
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                  <Mail className="h-5 w-5 text-primary" />
+                  <Mail aria-hidden="true" className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-foreground/60 mb-1">
@@ -95,7 +95,7 @@ const Contact: React.FC = () => {
 
               <div className="flex items-start">
                 <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                  <MapPin className="h-5 w-5 text-primary" />
+                  <MapPin aria-hidden="true" className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-foreground/60 mb-1">
@@ -142,11 +142,12 @@ const Contact: React.FC = () => {
                   type="text"
                   id="name"
                   name="name"
+                  autoComplete="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/50 dark:bg-background/50 border border-foreground/10 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary/30 focus:outline-none transition-all placeholder:text-foreground/50 dark:placeholder:text-foreground/70"
-                  placeholder="Your name"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-background/50 border border-foreground/10 rounded-lg focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary/30 focus-visible:outline-none transition-all placeholder:text-foreground/50 dark:placeholder:text-foreground/70"
+                  placeholder="Your name..."
                 />
               </div>
 
@@ -161,10 +162,12 @@ const Contact: React.FC = () => {
                   type="email"
                   id="email"
                   name="email"
+                  autoComplete="email"
+                  spellCheck={false}
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/50 dark:bg-background/50 border border-foreground/10 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary/30 focus:outline-none transition-all placeholder:text-foreground/50 dark:placeholder:text-foreground/70"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-background/50 border border-foreground/10 rounded-lg focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary/30 focus-visible:outline-none transition-all placeholder:text-foreground/50 dark:placeholder:text-foreground/70"
                   placeholder="your@email.com"
                 />
               </div>
@@ -183,7 +186,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/50 dark:bg-background/50 border border-foreground/10 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary/30 focus:outline-none transition-all resize-none placeholder:text-foreground/50 dark:placeholder:text-foreground/70"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-background/50 border border-foreground/10 rounded-lg focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary/30 focus-visible:outline-none transition-all resize-none placeholder:text-foreground/50 dark:placeholder:text-foreground/70"
                   placeholder="Your message..."
                 />
               </div>
@@ -220,7 +223,7 @@ const Contact: React.FC = () => {
                 ) : (
                   <span className="flex items-center ">
                     Send Message
-                    <Send className="ml-2 h-4 w-4" />
+                    <Send aria-hidden="true" className="ml-2 h-4 w-4" />
                   </span>
                 )}
               </button>
