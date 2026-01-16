@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ProjectDialog from "./ProjectDialog";
 
@@ -47,6 +47,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <img
             src={image}
             alt={title}
+            loading="lazy"
+            decoding="async"
             className={cn(
               "w-full h-full object-cover transition-transform duration-700 ease-out",
               isHovered ? "scale-110" : "scale-100"
