@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { ArrowDown } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 
 const Hero: React.FC = () => {
@@ -48,6 +47,9 @@ const Hero: React.FC = () => {
               alt={personalInfo.name}
               width={128}
               height={128}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover"
             />
           </div>
