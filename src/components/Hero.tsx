@@ -46,6 +46,8 @@ const Hero: React.FC = () => {
             <img
               src={personalInfo.avatar}
               alt={personalInfo.name}
+              width={128}
+              height={128}
               className="w-full h-full object-cover"
             />
           </div>
@@ -67,13 +69,13 @@ const Hero: React.FC = () => {
           <div className="flex items-center justify-center gap-6 pt-4">
             <a
               href="#experience"
-              className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+              className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               Learn More
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 border border-foreground/20 rounded-full font-medium hover:bg-foreground/5"
+              className="px-6 py-3 border border-foreground/20 rounded-full font-medium hover:bg-foreground/5 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               Contact Me
             </a>

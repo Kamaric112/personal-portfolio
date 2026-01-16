@@ -88,10 +88,10 @@ const Header: React.FC = () => {
         >
           <button
             onClick={toggleMenu}
-            className="absolute top-4 right-4 md:hidden p-2"
+            className="absolute top-4 right-4 md:hidden p-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none rounded"
             aria-label="Close menu"
           >
-            <X className="h-6 w-6" />
+            <X aria-hidden="true" className="h-6 w-6" />
           </button>
 
           <ul className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12 p-12 md:p-0">
@@ -100,7 +100,7 @@ const Header: React.FC = () => {
                 <a
                   href={`#${item.toLowerCase()}`}
                   className={cn(
-                    "text-base md:text-sm font-medium tracking-wide transition-colors",
+                    "text-base md:text-sm font-medium tracking-wide transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none rounded",
                     activeSection === item.toLowerCase()
                       ? "text-primary font-semibold underline" // Added underline here
                       : "text-foreground/80 hover:text-foreground"
@@ -116,10 +116,10 @@ const Header: React.FC = () => {
 
         <button
           onClick={toggleMenu}
-          className={cn("md:hidden p-2 z-50", isMenuOpen ? "hidden" : "")}
+          className={cn("md:hidden p-2 z-50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none rounded", isMenuOpen ? "hidden" : "")}
           aria-label="Open menu"
         >
-          <Menu className="h-6 w-6" />
+          <Menu aria-hidden="true" className="h-6 w-6" />
         </button>
       </div>
     </header>

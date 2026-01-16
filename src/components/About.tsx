@@ -53,35 +53,35 @@ const colors = {
 } as const;
 
 const skillIcons: Record<string, React.ReactNode> = {
-  Vue: <FaVuejs color={colors.vueGreen} className="h-8 w-8 text-primary" />,
-  React: <FaReact color={colors.reactCyan} className="h-8 w-8 text-primary" />,
+  Vue: <FaVuejs aria-hidden="true" color={colors.vueGreen} className="h-8 w-8 text-primary" />,
+  React: <FaReact aria-hidden="true" color={colors.reactCyan} className="h-8 w-8 text-primary" />,
   TypeScript: (
-    <SiTypescript color={colors.tsBlue} className="h-8 w-8 text-primary" />
+    <SiTypescript aria-hidden="true" color={colors.tsBlue} className="h-8 w-8 text-primary" />
   ),
   "Node.js": (
-    <FaNode color={colors.vueGreen} className="h-8 w-8 text-primary" />
+    <FaNode aria-hidden="true" color={colors.vueGreen} className="h-8 w-8 text-primary" />
   ),
-  Database: <FaDatabase className="h-8 w-8 text-primary" />,
-  AWS: <FaAws color={colors.awsOrange} className="h-8 w-8 text-primary" />,
+  Database: <FaDatabase aria-hidden="true" className="h-8 w-8 text-primary" />,
+  AWS: <FaAws aria-hidden="true" color={colors.awsOrange} className="h-8 w-8 text-primary" />,
   "AWS Serverless": (
-    <SiAwslambda color={colors.awsOrange} className="h-8 w-8 text-primary" />
+    <SiAwslambda aria-hidden="true" color={colors.awsOrange} className="h-8 w-8 text-primary" />
   ),
-  Git: <FaGitAlt color={colors.gitRed} className="h-8 w-8 text-primary" />,
-  Github: <FaGithub className="h-8 w-8 text-primary" />,
-  Jira: <FaJira color={colors.tsBlue} className="h-8 w-8 text-primary" />,
+  Git: <FaGitAlt aria-hidden="true" color={colors.gitRed} className="h-8 w-8 text-primary" />,
+  Github: <FaGithub aria-hidden="true" className="h-8 w-8 text-primary" />,
+  Jira: <FaJira aria-hidden="true" color={colors.tsBlue} className="h-8 w-8 text-primary" />,
   Sentry: (
-    <SiSentry color={colors.awsOrange} className="h-8 w-8 text-primary" />
+    <SiSentry aria-hidden="true" color={colors.awsOrange} className="h-8 w-8 text-primary" />
   ),
-  "CI/CD": <FaCodeBranch className="h-8 w-8 text-primary" />,
-  Agile: <VscOrganization className="h-8 w-8 text-primary" />,
+  "CI/CD": <FaCodeBranch aria-hidden="true" className="h-8 w-8 text-primary" />,
+  Agile: <VscOrganization aria-hidden="true" className="h-8 w-8 text-primary" />,
 };
 
 const skillsLearningIcon: Record<string, React.ReactNode> = {
   Fastify: (
-    <SiFastify color={colors.vueGreen} className="h-8 w-8 text-primary" />
+    <SiFastify aria-hidden="true" color={colors.vueGreen} className="h-8 w-8 text-primary" />
   ),
   ElasticSearch: (
-    <SiElasticsearch color={colors.vueGreen} className="h-8 w-8 text-primary" />
+    <SiElasticsearch aria-hidden="true" color={colors.vueGreen} className="h-8 w-8 text-primary" />
   ),
 };
 
@@ -171,7 +171,7 @@ const About: React.FC = () => {
                 Skills
               </h3>
               <div className="flex items-center gap-2">
-                <span className="inline-block origin-[70%_70%] animate-wave text-lg cursor-default">👋</span>
+                <span aria-hidden="true" className="inline-block origin-[70%_70%] animate-wave text-lg cursor-default">👋</span>
                 <div className="relative bg-primary text-primary-foreground py-2 px-3 rounded-lg text-xs whitespace-nowrap before:content-[''] before:absolute before:-left-1.5 before:top-1/2 before:-translate-y-1/2 before:border-[6px] before:border-transparent before:border-r-primary">
                   You can reorder the skills!
                 </div>
